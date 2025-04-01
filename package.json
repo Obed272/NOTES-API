@@ -1,0 +1,23 @@
+{
+  "name": "notes-api",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A Simple Notes Api",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Nwadinobi Obed",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.1",
+    "prisma": "^6.5.0",
+    "redis": "^4.7.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "nodemon": "^3.1.9"
+  }
+}
