@@ -20,3 +20,11 @@ model Note {
   createdAt   DateTime  @default(now()) //Time when the note is created 
   updatedAt   DateTime  @updatedAt // Time updates when the note is  modified
 }
+
+model User{
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  name       String   
+  email      String      @unique
+  password    String      
+  createdAt  DateTime    @default(now())
+}

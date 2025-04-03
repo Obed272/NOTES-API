@@ -15,7 +15,10 @@ export const createNote = async (req, res) => {
   }
 };
 
-export const getNotes = async (req, res) => {
+export const getAllNotes = async (req, res) => {
+  const { page = 1, limit = 10, search} = req.query;
+  const skip = (page - 1) * limit;
+
   try {
       const cachedNotes = await redisClient.get("notes");
 
@@ -32,7 +35,7 @@ export const getNotes = async (req, res) => {
   }
 };
 
-export const getNote = async (req, res) => {
+export const getSingleNote = async (req, res) => {
   try {
       const { id } = req.params;
 

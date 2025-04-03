@@ -1,21 +1,24 @@
 import  { Router }  from 'express';
-import { createNote, deleteNote, getNote, getNotes, updateNote } from '../controllers/notesControllers.js';
+import { createNote, deleteNote, getSingleNote, getAllNotes, updateNote } from '../controllers/notesControllers.js';
+import authMiddleware from '../middleware/auth.js';
+import { PrismaClient } from '@prisma/client';
 
-const router = Router()
+const router = Router();
+const prisma = new PrismaClient();
 // Create a note
-router.post('/', createNote)
+router.post('/', authMiddleware, createNote)
 
 // **Get All Notes (with Redis caching)**
-router.get("/", getNotes);
+router.get("/", authMiddleware, getAllNotes);
 
 // Get a single note
-router.get('/:id', getNote);
+router.get('/:id', getSingleNote);
 
 // Update Note
 router.put('/:id', updateNote)
 
 // Delete Note 
-router.delete('/:id', deleteNote)
+router.delete('/:id', authMiddleware, deleteNote)
  
 // export default router;
 export default router;
