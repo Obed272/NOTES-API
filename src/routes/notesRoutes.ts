@@ -1,10 +1,12 @@
 import  { Router }  from 'express';
-import { createNote, deleteNote, getSingleNote, getAllNotes, updateNote } from '../controllers/notesControllers.js';
-import authMiddleware from '../middleware/auth.js';
+import { createNote, deleteNote, getSingleNote, getAllNotes, updateNote } from '../controllers/notesControllers.ts';
+import {authMiddleware} from '../middleware/auth.ts';
 import { PrismaClient } from '@prisma/client';
+
 
 const router = Router();
 const prisma = new PrismaClient();
+
 // Create a note
 router.post('/', authMiddleware, createNote)
 

@@ -1,10 +1,10 @@
-import express from "express";
+import { Router } from "express";
 import dotenv from "dotenv";
-import { registerUser, logInUser } from "../models/users.js";
+import { registerUser, logInUser } from "../models/user.ts";
 import { regUser, logUser } from "../controllers/authControllers.js";
 
 dotenv.config();
-const router = express.Router();
+const router = Router();
 
 // Register User
 router.post('/register', registerUser, regUser);
